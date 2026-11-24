@@ -1,5 +1,14 @@
 # SW-DLT
 
+> **Fork of [net00-1/SW-DLT](https://github.com/net00-1/SW-DLT).** Changes from upstream:
+> - The install step downloads `src/SW_DLT.py` from one pinned commit of this fork and deletes it if its SHA-256 does not match.
+> - The pip packages are pinned to fixed versions. The script does not upgrade them.
+> - The shortcut does not check for upstream updates.
+> - The media URL is quoted in the a-Shell command, and the gallery-dl arguments are quoted in the script. The script rejects URLs that do not start with `http://` or `https://`.
+>
+> To change the script or the pip versions, see `CLAUDE.md`.
+
+
 SW-DLT ("Shortcuts Wrapper for -DL Tools") is an iOS shortcut that allows you to easily use, install and manage the popular and open source utilities [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) and [`gallery-dl`](https://github.com/mikf/gallery-dl). This shortcut aims to be compatible with [`yt-dlp's`](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md) & [`gallery-dl's`](https://github.com/mikf/gallery-dl/blob/master/docs/supportedsites.md) collections of supported websites.
 
 **Download link: [Releases](https://github.com/net00-1/SW-DLT/releases)**
