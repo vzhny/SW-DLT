@@ -2505,9 +2505,9 @@ hideKeyboard
 echo "Please wait..."
 python -m venv $HOME/Documents/SW-DLT/SW-DLT-ENV/
 source $HOME/Documents/SW-DLT/SW-DLT-ENV/bin/activate
-pip install chardet requests certifi mutagen -q --disable-pip-version-check --upgrade --force-reinstall
-pip install yt-dlp yt-dlp-ejs yt-dlp-apple-webkit-jsi gallery-dl -q --disable-pip-version-check --upgrade --force-reinstall
-curl -sL https://net00-1.github.io/SW-DLT/api/content/SW_DLT.py -o $HOME/Documents/SW-DLT/SW_DLT.py
+pip install chardet==7.7.0 requests==2.34.2 certifi==2026.11.20 mutagen==1.48.1 yt-dlp==2026.11.23 yt-dlp-ejs==0.8.0 yt-dlp-apple-webkit-jsi==0.1.1 gallery-dl==1.32.21 -q --disable-pip-version-check --force-reinstall
+curl -sL https://raw.githubusercontent.com/vzhny/SW-DLT/7da50f9f9996c26b269d774c1d455eb6827605eb/src/SW_DLT.py -o $HOME/Documents/SW-DLT/SW_DLT.py
+python -c "import hashlib,os,sys; p,h=sys.argv[1:]; hashlib.sha256(open(p,'rb').read()).hexdigest()==h or os.remove(p)" $HOME/Documents/SW-DLT/SW_DLT.py bf5d8512d3b9c2e2397671d1a050aa89d865c50210c28c888f3d7d461c22e489
 deactivate
 open shortcuts://
 clear &amp;&amp; cd
