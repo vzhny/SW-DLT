@@ -18,4 +18,5 @@ Fork of net00-1/SW-DLT (remote `upstream`). The shortcut runs a pinned copy of `
 
 - a-Shell parses `subprocess` command strings like a shell. Quote each value with `shlex.quote`.
 - Each change to `src/SW_DLT.py` needs this order: commit, push, `tools/pin.py <commit>`, commit the plist, sign again. Phones that already have the script keep the old copy until you delete `~/Documents/SW-DLT/SW_DLT.py` in a-Shell or run the shortcut's uninstall setting.
+- The a-Shell "Get File" step has `copyFile` on as a workaround for an iOS 27.2 crash (holzschu/a-shell#1138). It loads the file into memory, so very large files (about 2 GB) time out. Turn it off again when a-Shell or iOS fixes the bug.
 - Do not commit signed `.shortcut` files.

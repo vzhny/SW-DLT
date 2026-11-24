@@ -2170,6 +2170,8 @@ GLOBAL SETTINGS INITIALIZATION</string>
 				<false/>
 				<key>UUID</key>
 				<string>4B12BAD9-0438-4485-9AE0-90B7C86F528C</string>
+				<key>copyFile</key>
+				<true/>
 				<key>errorIfNotFound</key>
 				<true/>
 				<key>fileName</key>
