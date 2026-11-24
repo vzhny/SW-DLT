@@ -7,6 +7,7 @@ import importlib
 import datetime
 import hashlib
 import shutil
+import shlex
 import base64
 import json
 import sys
@@ -25,6 +26,8 @@ class SW_DLT:
         # args[1]: main process to run
         # args[2] (dependent): resolution for video, type for playlist, or range for gallery
         # args[3] (dependent): framerate for video
+        if not args[0].startswith(("http://", "https://")):
+            raise Exception("Invalid URL")
         self.media_url = args[0]
         self.file_id = file_id
         self.date_id = datetime.datetime.today().strftime("%d-%m-%y-%H-%M-%S")
@@ -146,8 +149,9 @@ class SW_DLT:
         try:
             # Creating temp folder to store media
             os.makedirs(self.file_id, exist_ok=True)
-            dl_cmd = "gallery-dl {0} --range \"{1}\" --directory {2} --cookies-from-browser safari".format(
-                self.media_url, self.gallery_range, self.file_id)
+            # a-Shell parses command strings like a shell, so every value must be quoted
+            dl_cmd = "gallery-dl {0} --range {1} --directory {2} --cookies-from-browser safari".format(
+                shlex.quote(self.media_url), shlex.quote(self.gallery_range), shlex.quote(self.file_id))
                 
             with subprocess.Popen(dl_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, bufsize=1, universal_newlines=True) as gdl:
                 for entry in gdl.stdout:
