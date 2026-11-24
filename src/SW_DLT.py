@@ -3,7 +3,6 @@
 
 import urllib.parse
 import subprocess
-import importlib
 import datetime
 import hashlib
 import shutil
@@ -74,17 +73,7 @@ class SW_DLT:
         while not os.path.exists(f"{os.environ['HOME']}/Library/Cookies/Cookies.binarycookies"):
             subprocess.run("sleep 1")
         
-        show_progress("util", 1, 2)
-
-        with open(f"{os.environ['HOME']}/Documents/SW-DLT/shortcut_update_ts.txt", 'r') as ts_file:
-            last_check = int(ts_file.read())
-    
-        if int(current_time.timestamp()) - last_check < 600:
-            subprocess.run("pip install chardet requests certifi mutagen -q --disable-pip-version-check --upgrade")
-            subprocess.run("pip install yt-dlp yt-dlp-ejs yt-dlp-apple-webkit-jsi gallery-dl -q --disable-pip-version-check --upgrade")
-            #yt-dlp is reloaded here to avoid issues after updates
-            importlib.reload(yt_dlp)
-        
+        # Packages are pinned in the shortcut's install step; no auto-upgrade here
         show_progress("util", 2, 2)
 
     def single_video(self):
